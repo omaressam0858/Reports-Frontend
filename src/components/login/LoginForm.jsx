@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios"
+import { useRouter } from 'next/navigation'
 const API = 'http://localhost:8080/api'
 
 const LoginForm = () => {
@@ -9,11 +10,21 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
+    useEffect(() => {
+        const roleId = localStorage.getItem('roleId');
+        console.log(roleId)
+        if(roleId == 2) {
+            router.push('/admin');
+        }else if(roleId == 1) {
+            router.push('/coach');
+        }else if(roleId == 0) {
+            router.push('/player');
+        }
+    })
     const handleLogin = async () => {
         try {
-            
-
             setError('');
             setLoading(true);
             const response = await axios.post(API + '/auth/login', {
@@ -21,12 +32,28 @@ const LoginForm = () => {
                 password
             })
 
-            const token = response.data.token;
+            const {token, roleId} = response.data;
 
             localStorage.setItem('token', token);
+            localStorage.setItem('roleId', roleId);
+            switch(roleId) {
+                case 2:
+                    router.push('/admin');
+                    break;
+                case 1:
+                    router.push('/coach');
+                    break;
+                case 0:
+                    router.push('/player');
+                    break;
+                default:
+                    router.push('/');
+            }
+
         } 
         catch(error) {
-            setError(error.response.data.message);
+            if(error.response)
+                setError(error.response.data.message);
         }
         finally {
             setLoading(false);

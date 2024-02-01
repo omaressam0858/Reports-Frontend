@@ -9,7 +9,7 @@ export default function Home() {
         <div className="">
           <h1 className="font-serif text-3xl font-medium">Eagles E-Sports</h1>
         </div>
-        <Link href= "/login" className="self-start px-3 py-2 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b hover:from-blue-500 from-gray-900 to-black">
+        <Link href="/login" className="self-start px-3 py-2 leading-none text-gray-200 border border-gray-800 rounded-lg focus:outline-none focus:shadow-outline bg-gradient-to-b hover:from-blue-500 from-gray-900 to-black">
           Login
         </Link>
       </div>
@@ -23,7 +23,7 @@ export default function Home() {
       </p>
       <div className="h-10"></div>
       <p className="max-w-2xl font-serif text-xl text-gray-400 md:text-2xl">
-      Welcome to Eagles Admin Hub! Unlock the door to seamless coordination, where players and coaches converge to elevate their game. Your journey to victory starts here!
+        Welcome to Eagles Admin Hub! Unlock the door to seamless coordination, where players and coaches converge to elevate their game. Your journey to victory starts here!
       </p>
     </div>
   );
