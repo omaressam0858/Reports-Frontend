@@ -14,7 +14,6 @@ const LoginForm = () => {
 
     useEffect(() => {
         const roleId = localStorage.getItem('roleId');
-        console.log(roleId)
         if(roleId == 2) {
             router.push('/admin');
         }else if(roleId == 1) {
