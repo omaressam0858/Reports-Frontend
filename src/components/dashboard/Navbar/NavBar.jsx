@@ -1,5 +1,6 @@
 import React from 'react';
-import PlayerNavBar from '../player/PlayerNavBar';
+import PlayerNavBar from '../player/NavBar';
+import CoachNavBar from '../coach/NavBar';
 import Image from 'next/image';
 
 
@@ -8,7 +9,7 @@ export default function NavBar(props) {
   return (
     <div className={navColor+" h-screen w-full relative flex overflow-hidden"}>
       {props.roleId == 0 && (<PlayerNavBar />)}
-
+      {props.roleId == 1 && (<CoachNavBar />)}
 
       <div className="w-full h-full flex flex-col justify-between">
         <header className= "h-16 w-full flex items-center relative justify-end px-5 space-x-10">
@@ -18,7 +19,7 @@ export default function NavBar(props) {
               <h1 className="text-lg font-bold">Eagles E-Sports</h1>
             </div>
             <Image src="/Eagles.png" width={75} height={75}/>
-            
+
           </div>
         </header>
 

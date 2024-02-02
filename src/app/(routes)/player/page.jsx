@@ -1,8 +1,8 @@
 import NavBar from "@/components/dashboard/Navbar/NavBar"
-import PlayerTeam from "@/components/dashboard/player/PlayerTeam";
+import PlayerTeam from "@/components/dashboard/player/Team";
 
 export default function Page() {
-    const response = (
+    return (
         <NavBar roleId="0">
             <div className="flex h-full flex-col bg-neutral-200 overflow-y-auto	">
                 <div>
@@ -15,5 +15,4 @@ export default function Page() {
         </NavBar>
     )
 
-    return response
 }   
