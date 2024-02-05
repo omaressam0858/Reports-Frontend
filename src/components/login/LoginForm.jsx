@@ -3,7 +3,7 @@
 import { useState,useEffect } from "react";
 import axios from "axios"
 import { useRouter } from 'next/navigation'
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');

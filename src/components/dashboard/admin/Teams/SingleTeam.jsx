@@ -6,7 +6,7 @@ import Link from 'next/link'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useRouter } from 'next/navigation';
 
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 
 export default function SingleTeam({ teamId }) {
     const [team, setTeam] = useState({});

@@ -3,7 +3,7 @@ import { Button, Modal } from "@mui/material";
 import GroupsIcon from '@mui/icons-material/Groups';
 import axios from 'axios';
 
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 
 export default function AddNewTeamWindow({ isOpen, onClose }) {
     const [teamName, setTeamName] = useState("");

@@ -6,7 +6,7 @@ import { Button } from "@mui/material"
 export default function AcceptReport({ reportId }) {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
-    const API = 'http://localhost:8080/api';
+    const API = 'https://eagles-57a4.onrender.com/api';
     
     const acceptReport = () => {
         setLoading(true);

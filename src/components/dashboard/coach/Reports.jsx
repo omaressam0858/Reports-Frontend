@@ -9,7 +9,7 @@ export default function CoachReports() {
     const [reports, setReports] = useState(null);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
-    const API = 'http://localhost:8080/api';
+    const API = 'https://eagles-57a4.onrender.com/api';
 
     useEffect(() => {
         try {

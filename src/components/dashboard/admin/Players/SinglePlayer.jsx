@@ -8,7 +8,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import PhoneIcon from '@mui/icons-material/Phone';
 import GamesIcon from '@mui/icons-material/Games';
 
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 
 export default function SinglePlayer({ playerId }) {
     const [player, setPlayer] = useState({});

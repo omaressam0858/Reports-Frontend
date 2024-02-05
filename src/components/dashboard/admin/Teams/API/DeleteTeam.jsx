@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 
 export default function DeleteTeam(teamId) {
     const token = localStorage.getItem("token");

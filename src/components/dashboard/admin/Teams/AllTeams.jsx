@@ -14,7 +14,7 @@ import AddNewTeamButton from './Buttons/AddNewTeam'
 import AddNewTeamWindow from './Modals/AddNewTeam'
 
 import DeleteTeam from './API/DeleteTeam';
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 export default function AllTeams() {
     const [teams, setTeams] = useState([]);
     const [loading, setLoading] = useState(true);

@@ -9,7 +9,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import Container from '../Container'
 
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 export default function AllReports() {
     const [reports, setReports] = useState([]);
     const [loading, setLoading] = useState(true);

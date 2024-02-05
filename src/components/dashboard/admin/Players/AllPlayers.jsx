@@ -14,7 +14,7 @@ import AddNewPlayerButton from './Buttons/AddNewPlayer'
 import AddNewPlayerWindow from './Modals/AddNewPlayer'
 
 import DeletePlayer from './API/DeletePlayer';
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 export default function AllPlayers() {
     const [players, setPlayers] = useState([]);
     const [loading, setLoading] = useState(true);
