@@ -10,7 +10,7 @@ import GamesIcon from '@mui/icons-material/Games';
 
 import { CircularProgress, InputLabel, Select, MenuItem, FormControl, FormControlLabel, FormLabel, RadioGroup, Radio } from '@mui/material'
 
-const API = 'http://localhost:8080/api'
+const API = 'https://eagles-57a4.onrender.com/api'
 
 export default function AddNewPlayerWindow({ isOpen, onClose }) {
     const [name, setName] = useState('')
