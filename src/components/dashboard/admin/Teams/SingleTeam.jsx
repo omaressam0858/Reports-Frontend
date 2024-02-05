@@ -4,12 +4,14 @@ import axios from 'axios'
 import { CircularProgress,Card,CardContent } from '@mui/material'
 import Link from 'next/link'
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useRouter } from 'next/navigation';
 
 const API = 'http://localhost:8080/api'
 
 export default function SingleTeam({ teamId }) {
     const [team, setTeam] = useState({});
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
     useEffect(() => {
         try {
             const token = localStorage.getItem("token");
@@ -18,9 +20,13 @@ export default function SingleTeam({ teamId }) {
                 setLoading(false);
             }).catch((err) => {
                 console.error(err);
-                localStorage.removeItem("token");
-                localStorage.removeItem("roleId");
-                router.push('/login');
+                if (err.response.status == 401) {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("roleId");
+                    router.push('/login');}
+                else if (err.response.status == 404) {
+                    router.push('/not-found');
+                }
             })
         } catch (err) {
             console.error(err)

@@ -1,12 +1,12 @@
 'use client'
 import NavigationBar from '@/components/dashboard/admin/NavigationBar'
-import SingleTeam from '@/components/dashboard/admin/Teams/SingleTeam'
-export default function Page({params: { teamId }}) {
+import SinglePlayer from '@/components/dashboard/admin/Players/SinglePlayer'
+export default function Page({params: { playerId }}) {
 
     return (
         <div className="bg-white h-screen">
             <NavigationBar />
-            <SingleTeam teamId={teamId} />
+            <SinglePlayer playerId={playerId} />
         </div>
     )
 }

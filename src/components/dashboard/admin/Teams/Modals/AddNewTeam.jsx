@@ -21,15 +21,15 @@ export default function AddNewTeamWindow({ isOpen, onClose }) {
 
     return (
         <Modal open={isOpen} onClose={onClose} className="flex h-screen m-auto items-center">
-            <form class="max-w-sm mx-auto rounded-3xl bg-white p-5" action={addTeam}>
-            <label for="teamName" class="block mb-2 text-sm font-medium text-gray-900 ">Team Name</label>
-                <div class="flex">
-                    <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md">
+            <form className="max-w-sm mx-auto rounded-3xl bg-white p-5" action={addTeam}>
+            <label for="teamName" className="block mb-2 text-sm font-medium text-gray-900 ">Team Name</label>
+                <div className="flex">
+                    <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-e-0 border-gray-300 rounded-s-md">
                         <GroupsIcon />
                     </span>
-                    <input type="text" onChange={(e) => setTeamName(e.target.value)} id="teamName" class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5" placeholder="Valorant Academy" />
+                    <input type="text" onChange={(e) => setTeamName(e.target.value)} id="teamName" className="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5" placeholder="Valorant Academy" />
                 </div>
-                <Button type="submit" disabled={loading} class="rounded mx-auto my-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2.5 items-center">Add</Button>
+                <Button type="submit" disabled={loading} className="rounded mx-auto my-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2.5 items-center">Add</Button>
             </form>
         </Modal>
 
