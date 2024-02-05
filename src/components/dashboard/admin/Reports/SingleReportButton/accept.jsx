@@ -14,7 +14,7 @@ export default function AcceptReport({ reportId }) {
         axios.post(`${API}/coach/reports/${reportId}/accept`, {}, { headers: { Authorization: token } })
             .then(() => {
                 setLoading(false);
-                router.push('/coach/reports');
+                router.push('/admin/reports');
             })
             .catch((err) => {
                 console.error(err);
