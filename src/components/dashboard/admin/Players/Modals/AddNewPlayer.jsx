@@ -47,6 +47,14 @@ export default function AddNewPlayerWindow({ isOpen, onClose }) {
         const token = localStorage.getItem("token");
         axios.post(API + "/auth/register", { name,email,password,teamId:playerTeamId,roleId,phoneNumber,gameUserName }, { headers: { Authorization: token } }).then((res) => {
             setLoading(false);
+            setName('')
+            setEmail('')
+            setPassword('')
+            setRoleId(0)
+            setPhoneNumber('')
+            setGameUserName('')
+            setPlayerTeamId('')
+            setError(null)
             onClose();
         }).catch((err) => {
             setLoading(false);
