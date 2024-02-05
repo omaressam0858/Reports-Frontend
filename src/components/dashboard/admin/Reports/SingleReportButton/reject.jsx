@@ -14,7 +14,7 @@ export default function RejectButton({ reportId }) {
         axios.post(`${API}/coach/reports/${reportId}/reject`, {}, { headers: { Authorization: token } })
             .then(() => {
                 setLoading(false);
-                router.push('/coach/reports');
+                router.push('/admin/reports');
             })
             .catch((err) => {
                 console.error(err);
