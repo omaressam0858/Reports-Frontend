@@ -42,7 +42,7 @@ export default function CoachTeam() {
                 <br />
                 <Divider sx={{ borderBottomWidth: '5px' }} />
                 <br />
-                <div class="grid grid-rows-1 gap-10 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+                <div className="grid grid-rows-1 gap-10 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
                     {team.Users.map((player) => {
                         return (
                             <Card key={player.id} variant="outlined" className="bg-white text-black rounded-lg">
