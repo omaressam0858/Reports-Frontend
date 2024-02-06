@@ -31,8 +31,8 @@ const LoginForm = () => {
                 password
             })
 
-            const {token, roleId} = response.data;
-
+            const {token, roleId, name} = response.data;
+            localStorage.setItem('name', name);
             localStorage.setItem('token', token);
             localStorage.setItem('roleId', roleId);
             switch(roleId) {

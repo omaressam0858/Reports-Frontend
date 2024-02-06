@@ -1,17 +1,12 @@
-import NavBar from "@/components/dashboard/Navbar/NavBar"
-import SingleReport from "@/components/dashboard/coach/ReportPage"
+'use client'
 
+import NavigationBar from "@/components/dashboard/coach/NavigationBar";
+import SingleReport from "@/components/dashboard/coach/Reports/ReportPage";
 export default function Page({params: { reportId }}) {
-
-    return ( 
-    <NavBar roleId="1">
-        <div className="flex h-full flex-col bg-neutral-200 overflow-y-auto">
-            <div>
-                <section className="text-black my-5 container bg-neutral-100 mx-auto p-4 overflow-hidden md:rounded-lg md:p-10 lg:p-12">
-                    <SingleReport reportId={reportId} />
-                </section>
-            </div>
+    return (
+        <div className="bg-white h-screen">
+            <NavigationBar />
+            <SingleReport reportId={reportId}/>
         </div>
-    </NavBar>
     )
-}
+}   

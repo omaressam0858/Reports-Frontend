@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation'
 import axios from 'axios';
 
+import { Modal } from '@mui/material';
+
 const API = 'https://eagles-57a4.onrender.com/api';
 
-export default function PlayerAddReport() {
+export default function PlayerAddReport({ isOpen, onClose }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [error, setError] = useState(null);
@@ -13,7 +15,6 @@ export default function PlayerAddReport() {
   const router = useRouter();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     setError(null);
     setLoading(true);
 
@@ -40,10 +41,10 @@ export default function PlayerAddReport() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
-      <h1 className="text-2xl font-bold mb-4">Add Report</h1>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
-      <form onSubmit={handleSubmit}>
+    <Modal open={isOpen} onClose={onClose} className="flex h-screen w-full items-center">
+      <form action={handleSubmit} className="max-w-sm mx-auto rounded-3xl w-full bg-white p-5">
+        <h1 className="text-2xl font-bold mb-4 text-black">Add Report</h1>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
         <div className="mb-4">
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
           <input
@@ -67,6 +68,6 @@ export default function PlayerAddReport() {
           {loading ? 'Adding...' : 'Add'}
         </button>
       </form>
-    </div>
+    </Modal>
   );
 }
