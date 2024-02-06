@@ -25,7 +25,7 @@ export default function PlayerAddReport({ isOpen, onClose }) {
       }, {
         headers: { 'Authorization': localStorage.getItem('token') },
       });
-
+      onClose()
       router.push('/player/reports');
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -52,7 +52,7 @@ export default function PlayerAddReport({ isOpen, onClose }) {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-1 p-2 border rounded-md w-full"
+            className="mt-1 p-2 border rounded-md w-full text-black"
           />
         </div>
         <div className="mb-4">
@@ -61,7 +61,7 @@ export default function PlayerAddReport({ isOpen, onClose }) {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 p-2 border rounded-md w-full"
+            className="mt-1 p-2 border rounded-md w-full text-black"
           />
         </div>
         <button type="submit" className="bg-blue-500 text-white p-2 rounded-md" disabled={loading}>
