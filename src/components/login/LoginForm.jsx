@@ -3,6 +3,10 @@
 import { useState,useEffect } from "react";
 import axios from "axios"
 import { useRouter } from 'next/navigation'
+
+import { Box, Typography, TextField, Button } from '@mui/material';
+
+import FirstLoginModal from "./FirstLoginModal";
 const API = 'https://eagles-57a4.onrender.com/api'
 
 const LoginForm = () => {
@@ -10,6 +14,8 @@ const LoginForm = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [firstLogin, setFirstLogin] = useState(false);
+
     const router = useRouter();
 
     useEffect(() => {
@@ -52,7 +58,16 @@ const LoginForm = () => {
         } 
         catch(error) {
             if(error.response)
+            {
+                if (error.response.status === 406) 
+                {
+                    setFirstLogin(true);
+                } 
+                else 
+                {
                 setError(error.response.data.message);
+                }
+            }
         }
         finally {
             setLoading(false);
@@ -60,19 +75,39 @@ const LoginForm = () => {
     };
 
     return (
-        <form action={handleLogin}>
-            {error && <p className="text-red-600 text-s italic mb-4">{error}</p>}
-            <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-600">E-Mail</label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" id="email" name="email" className="text-black w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autoComplete="off" />
-            </div>
-            <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-600">Password</label>
-                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="password" name="password" className="text-black w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autoComplete="off" />
-            </div>
-            <button type="submit" disabled={loading} className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">Login</button>
+        <form action={handleLogin} className="max-w-md mx-auto">
+            {error && <Typography variant="body2" color="error" className="italic mb-4">{error}</Typography>}
+            <FirstLoginModal open={firstLogin} handleClose={() => setFirstLogin(false)} email={email} password={password} />
+            <Box mb={4}>
+                <TextField
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    id="email"
+                    name="email"
+                    label="E-Mail"
+                    fullWidth
+                    variant="outlined"
+                    autoComplete="off"
+                />
+            </Box>
+            <Box mb={4}>
+                <TextField
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    id="password"
+                    label="Password"
+                    name="password"
+                    fullWidth
+                    variant="outlined"
+                    autoComplete="off"
+                />
+            </Box>
+            <Button type="submit" disabled={loading} variant="contained" color="primary" className="bg-blue-500" fullWidth>
+                Login
+            </Button>
         </form>
-
     );
 };
 
